@@ -8,6 +8,7 @@ target 'HackerNews' do
   pod 'GoogleSignIn'
   pod 'Firebase/Core'
   pod 'DGActivityIndicatorView'
+  pod 'Realm'
 
 end
 

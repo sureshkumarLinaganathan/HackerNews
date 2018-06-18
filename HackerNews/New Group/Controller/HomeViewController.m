@@ -74,26 +74,29 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
     [self.view setUserInteractionEnabled:NO];
     [activityIndicatorView startAnimating];
     [[Webservice alloc]getTopStories:^(BOOL success, NSMutableArray *objects, NSString *errorMsg) {
-        [activityIndicatorView stopAnimating];
-        [view setHidden:YES];
-        [self.view setUserInteractionEnabled:YES];
         if(success){
             _keyArray = objects;
-            [self getStories];
+            [self getStories:0];
         }
     }];
-
+    
 }
 
--(void)getStories{
-    for(int i=pageIndex;i<10+pageIndex;i++){
-       // NSString *key =[@([self.keyArray objectAtIndex:i]) stringValue] ;
-        [[Webservice alloc]getStoriesForKey:key withCompletionBlock:^(BOOL success, Story *story, NSString *errorMsg) {
-            if(success){
-                [_storiesArray addObject:story];
+-(void)getStories:(int)pageIndex{
+    NSString *key = [self.keyArray objectAtIndex:pageIndex];
+    [[Webservice alloc]getStoriesForKey:key withCompletionBlock:^(BOOL success, Story *story, NSString *errorMsg) {
+        if(success){
+            [_storiesArray addObject:story];
+            if(pageIndex == 10){
+                [activityIndicatorView stopAnimating];
+                [view setHidden:YES];
+                [self.view setUserInteractionEnabled:YES];
+                [self.storiesTableView reloadData];
+            }else{
+            [self getStories:pageIndex+1];
             }
-        }];
-    }
+        }
+    }];
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -136,7 +139,7 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
 - (IBAction)signOutButtonTapped:(id)sender {
     NSError *signOutError;
     BOOL status = [[FIRAuth auth] signOut:&signOutError];
-     [[GIDSignIn sharedInstance]signOut];
+    [[GIDSignIn sharedInstance]signOut];
     
     if (!status) {
         NSLog(@"Error signing out: %@", signOutError);

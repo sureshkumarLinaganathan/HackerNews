@@ -47,12 +47,16 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Realm (3.7.2):
+    - Realm/Headers (= 3.7.2)
+  - Realm/Headers (3.7.2)
 
 DEPENDENCIES:
   - DGActivityIndicatorView
   - Firebase/Auth
   - Firebase/Core
   - GoogleSignIn
+  - Realm
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -67,6 +71,7 @@ SPEC REPOS:
     - GTMOAuth2
     - GTMSessionFetcher
     - nanopb
+    - Realm
 
 SPEC CHECKSUMS:
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
@@ -80,7 +85,8 @@ SPEC CHECKSUMS:
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Realm: dd18c3014e8d90df300b83c6da740067436089c5
 
-PODFILE CHECKSUM: 45bd07135ef3ad00d29ad2fab7d0b537d8b549ee
+PODFILE CHECKSUM: d1c7679f2e6eb22cc8add752458bc9d33f8008ae
 
 COCOAPODS: 1.5.3
