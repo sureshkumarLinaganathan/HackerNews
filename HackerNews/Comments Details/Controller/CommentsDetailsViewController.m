@@ -124,7 +124,8 @@ NSString *const commentsDetailsViewControllerSegue = @"commentsDetailViewControl
             }
         }];
     }else{
-        
+        [self hideActivityIndicator];
+        [self.tableView reloadData];
     }
 }
 
