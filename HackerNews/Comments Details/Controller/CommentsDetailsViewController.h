@@ -6,12 +6,12 @@
 //  Copyright © 2018 Omnify. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import "Story.h"
 
 FOUNDATION_EXPORT NSString *const commentsDetailsViewControllerSegue;
 
-@interface CommentsDetailsViewController : ViewController
+@interface CommentsDetailsViewController : UIViewController
 
 @property (nonatomic, strong) Story *story;
 

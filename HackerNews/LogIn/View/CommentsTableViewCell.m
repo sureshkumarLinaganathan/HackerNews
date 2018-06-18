@@ -8,6 +8,7 @@
 
 #import "CommentsTableViewCell.h"
 
+
 NSString *const commentsTableViewCellReuseIdentifier = @"commentsTableViewCellReuseIdentifier";
 @interface CommentsTableViewCell()
 
@@ -18,8 +19,19 @@ NSString *const commentsTableViewCellReuseIdentifier = @"commentsTableViewCellRe
 
 @implementation CommentsTableViewCell
 
--(void)setupView{
-    
+-(void)setupView:(Comment*)comment{
+    [self createCardView];
+    self.commentsLabel.text = comment.comment;
+    self.dateLabel.text = [NSString stringWithFormat:@"%@.%@", comment.time,comment.submitter];
+}
+
+-(void)createCardView{
+    self.cardView.layer.masksToBounds = NO;
+    self.cardView.layer.cornerRadius = 0;
+    self.cardView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+    self.cardView.layer.shadowRadius = 2.0;
+    self.cardView.layer.shadowColor = [[UIColor lightGrayColor] CGColor];
+    self.cardView.layer.shadowOpacity = 1.0;
 }
 
 @end

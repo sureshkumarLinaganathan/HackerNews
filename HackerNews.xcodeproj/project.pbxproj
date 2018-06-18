@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C49E10B734B7CEF8AED71A2A /* libPods-HackerNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D1EB6C8CF583FB7A38B851 /* libPods-HackerNewsUITests.a */; };
+		D53C75C820D82D0E001B08FF /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D53C75C720D82D0E001B08FF /* Comment.m */; };
 		D587FCA620D7FB87008E9DE3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D587FCA520D7FB87008E9DE3 /* HomeViewController.m */; };
 		D587FCB520D7FC0A008E9DE3 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D587FCB420D7FC0A008E9DE3 /* NSDate+Additions.m */; };
 		D587FCB820D7FC4F008E9DE3 /* CommentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D587FCB720D7FC4F008E9DE3 /* CommentsTableViewCell.m */; };
@@ -15,12 +16,10 @@
 		D587FCC020D7FD0B008E9DE3 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D587FCBE20D7FD0B008E9DE3 /* HomeTableViewCell.m */; };
 		D587FCC120D7FD0B008E9DE3 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D587FCBF20D7FD0B008E9DE3 /* HomeTableViewCell.xib */; };
 		D587FCC520D803B2008E9DE3 /* Webservice.m in Sources */ = {isa = PBXBuildFile; fileRef = D587FCC420D803B2008E9DE3 /* Webservice.m */; };
-		D5BCE97320D7C6B200737C64 /* UITextField+TextFieldEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCE97220D7C6B200737C64 /* UITextField+TextFieldEffects.m */; };
-		D5BCE97720D7CA9D00737C64 /* UIButton+ButtonEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCE97620D7CA9D00737C64 /* UIButton+ButtonEffects.m */; };
 		D5BCE97920D7D16500737C64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5BCE97820D7D16500737C64 /* GoogleService-Info.plist */; };
 		D5BCE97C20D7E16300737C64 /* CommentsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BCE97B20D7E16300737C64 /* CommentsDetailsViewController.m */; };
 		D5CF4E1F20D7C0B60088500C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CF4E1E20D7C0B60088500C /* AppDelegate.m */; };
-		D5CF4E2220D7C0B60088500C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CF4E2120D7C0B60088500C /* ViewController.m */; };
+		D5CF4E2220D7C0B60088500C /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CF4E2120D7C0B60088500C /* LogInViewController.m */; };
 		D5CF4E2520D7C0B60088500C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CF4E2320D7C0B60088500C /* Main.storyboard */; };
 		D5CF4E2720D7C0B60088500C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5CF4E2620D7C0B60088500C /* Assets.xcassets */; };
 		D5CF4E2A20D7C0B60088500C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5CF4E2820D7C0B60088500C /* LaunchScreen.storyboard */; };
@@ -56,6 +55,8 @@
 		524908A94F777B79FA692AE1 /* libPods-HackerNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackerNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3463522CD6917A88E836B5 /* Pods-HackerNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNewsTests/Pods-HackerNewsTests.release.xcconfig"; sourceTree = "<group>"; };
 		C2D1EB6C8CF583FB7A38B851 /* libPods-HackerNewsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackerNewsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D53C75C620D82D0E001B08FF /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		D53C75C720D82D0E001B08FF /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		D587FCA420D7FB87008E9DE3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D587FCA520D7FB87008E9DE3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D587FCB320D7FC0A008E9DE3 /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additions.h"; sourceTree = "<group>"; };
@@ -69,18 +70,14 @@
 		D587FCBF20D7FD0B008E9DE3 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		D587FCC320D803B2008E9DE3 /* Webservice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Webservice.h; sourceTree = "<group>"; };
 		D587FCC420D803B2008E9DE3 /* Webservice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Webservice.m; sourceTree = "<group>"; };
-		D5BCE97120D7C6B200737C64 /* UITextField+TextFieldEffects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+TextFieldEffects.h"; sourceTree = "<group>"; };
-		D5BCE97220D7C6B200737C64 /* UITextField+TextFieldEffects.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+TextFieldEffects.m"; sourceTree = "<group>"; };
-		D5BCE97520D7CA9D00737C64 /* UIButton+ButtonEffects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ButtonEffects.h"; sourceTree = "<group>"; };
-		D5BCE97620D7CA9D00737C64 /* UIButton+ButtonEffects.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ButtonEffects.m"; sourceTree = "<group>"; };
 		D5BCE97820D7D16500737C64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D5BCE97A20D7E16300737C64 /* CommentsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentsDetailsViewController.h; sourceTree = "<group>"; };
 		D5BCE97B20D7E16300737C64 /* CommentsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentsDetailsViewController.m; sourceTree = "<group>"; };
 		D5CF4E1A20D7C0B60088500C /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CF4E1D20D7C0B60088500C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D5CF4E1E20D7C0B60088500C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D5CF4E2020D7C0B60088500C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D5CF4E2120D7C0B60088500C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D5CF4E2020D7C0B60088500C /* LogInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		D5CF4E2120D7C0B60088500C /* LogInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		D5CF4E2420D7C0B60088500C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5CF4E2620D7C0B60088500C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5CF4E2920D7C0B60088500C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,6 +144,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D53C75CA20D83138001B08FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D53C75C620D82D0E001B08FF /* Comment.h */,
+				D53C75C720D82D0E001B08FF /* Comment.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D587FCA720D7FB8B008E9DE3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,7 +198,8 @@
 				D587FCB620D7FC4F008E9DE3 /* CommentsTableViewCell.h */,
 				D587FCB720D7FC4F008E9DE3 /* CommentsTableViewCell.m */,
 			);
-			path = View;
+			name = View;
+			path = ../LogIn/View;
 			sourceTree = "<group>";
 		};
 		D587FCC220D8038C008E9DE3 /* AppDelegate */ = {
@@ -217,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				D5BCE97020D7C67400737C64 /* Controller */,
-				D587FCB920D7FC53008E9DE3 /* View */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -225,8 +231,8 @@
 		D5BCE97020D7C67400737C64 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D5CF4E2020D7C0B60088500C /* ViewController.h */,
-				D5CF4E2120D7C0B60088500C /* ViewController.m */,
+				D5CF4E2020D7C0B60088500C /* LogInViewController.h */,
+				D5CF4E2120D7C0B60088500C /* LogInViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,10 +242,6 @@
 			children = (
 				D587FCB320D7FC0A008E9DE3 /* NSDate+Additions.h */,
 				D587FCB420D7FC0A008E9DE3 /* NSDate+Additions.m */,
-				D5BCE97120D7C6B200737C64 /* UITextField+TextFieldEffects.h */,
-				D5BCE97220D7C6B200737C64 /* UITextField+TextFieldEffects.m */,
-				D5BCE97520D7CA9D00737C64 /* UIButton+ButtonEffects.h */,
-				D5BCE97620D7CA9D00737C64 /* UIButton+ButtonEffects.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -247,7 +249,9 @@
 		D5BCE97D20D7E16E00737C64 /* Comments Details */ = {
 			isa = PBXGroup;
 			children = (
+				D53C75CA20D83138001B08FF /* Model */,
 				D5BCE97E20D7E18200737C64 /* Controller */,
+				D587FCB920D7FC53008E9DE3 /* View */,
 			);
 			path = "Comments Details";
 			sourceTree = "<group>";
@@ -537,14 +541,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D587FCB520D7FC0A008E9DE3 /* NSDate+Additions.m in Sources */,
-				D5BCE97720D7CA9D00737C64 /* UIButton+ButtonEffects.m in Sources */,
 				D5BCE97C20D7E16300737C64 /* CommentsDetailsViewController.m in Sources */,
 				D587FCC020D7FD0B008E9DE3 /* HomeTableViewCell.m in Sources */,
 				D587FCB820D7FC4F008E9DE3 /* CommentsTableViewCell.m in Sources */,
 				D587FCBC20D7FCFE008E9DE3 /* Story.m in Sources */,
 				D587FCC520D803B2008E9DE3 /* Webservice.m in Sources */,
-				D5BCE97320D7C6B200737C64 /* UITextField+TextFieldEffects.m in Sources */,
-				D5CF4E2220D7C0B60088500C /* ViewController.m in Sources */,
+				D53C75C820D82D0E001B08FF /* Comment.m in Sources */,
+				D5CF4E2220D7C0B60088500C /* LogInViewController.m in Sources */,
 				D5CF4E2D20D7C0B60088500C /* main.m in Sources */,
 				D587FCA620D7FB87008E9DE3 /* HomeViewController.m in Sources */,
 				D5CF4E1F20D7C0B60088500C /* AppDelegate.m in Sources */,

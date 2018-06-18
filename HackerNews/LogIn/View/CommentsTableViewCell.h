@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Comment.h"
 
 FOUNDATION_EXPORT  NSString *const commentsTableViewCellReuseIdentifier ;
 
 @interface CommentsTableViewCell : UITableViewCell
 
--(void)setupView;
+-(void)setupView:(Comment*)comment;
 
 @end
 

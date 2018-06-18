@@ -18,6 +18,8 @@
     self.numberOfVotes = [NSString stringWithFormat:@"%@", [dict objectForKey:@"score"]];
     self.totalComments = [NSString stringWithFormat:@"%@", [dict objectForKey:@"descendants"]];
     self.websiteURL = [dict objectForKey:@"url"];
+    self.commentsKey = [[NSArray alloc]init];
+    self.commentsKey = [dict objectForKey:@"kids"];
     return self;
 }
 

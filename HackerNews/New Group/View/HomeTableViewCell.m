@@ -20,22 +20,12 @@
 
 @implementation HomeTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-}
-
 - (void)setStory:(Story *)story {
     [self.articleTitleLabel setText:story.articleTitle];
     [self.websiteLabel setText:story.websiteURL];
-    [self.timeLabel setText:story.dateOfSubmission];
+    [self.timeLabel setText:[NSString stringWithFormat:@"%@.%@",story.dateOfSubmission,story.submitter]];
     [self.commentCountLabel setText:story.totalComments];
     [self.voteCountLabel setText:story.numberOfVotes];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
 }
 
 @end

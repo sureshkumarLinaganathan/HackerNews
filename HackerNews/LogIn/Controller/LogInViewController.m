@@ -1,21 +1,19 @@
 //
-//  ViewController.m
+//  LogInViewController.m
 //  HackerNews
 //
 //  Created by Sureshkumar Linganathan on 6/18/18.
 //  Copyright © 2018 Omnify. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "UITextField+TextFieldEffects.h"
-#import "UIButton+ButtonEffects.h"
+#import "LogInViewController.h"
 #import "HomeViewController.h"
 #import "DGActivityIndicatorView.h"
 
 @import Firebase;
 @import GoogleSignIn;
 
-@interface ViewController ()<GIDSignInUIDelegate,GIDSignInDelegate>
+@interface LogInViewController ()<GIDSignInUIDelegate,GIDSignInDelegate>
 {
     DGActivityIndicatorView *activityIndicatorView;
     UIView *view;
@@ -25,7 +23,9 @@
 
 @end
 
-@implementation ViewController
+@implementation LogInViewController
+
+#pragma mark -View life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,8 +35,9 @@
     [self addloadingIndicator];
 }
 
+#pragma mark - Google sign in
+
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
-    // ...
     if (error == nil) {
         GIDAuthentication *authentication = user.authentication;
         FIRAuthCredential *credebtials = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken accessToken:authentication.accessToken];
@@ -46,7 +47,6 @@
             }
             // User successfully signed in. Get user data from the FIRUser object
             if (authResult == nil) { return; }
-           // FIRUser *user = authResult.user;
             [activityIndicatorView stopAnimating];
             [view setHidden:YES];
             [self.view setUserInteractionEnabled:YES];
@@ -61,10 +61,8 @@
     
 }
 
-- (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error {
-    // Perform any operations when the user disconnects from app here.
-    // ...
-}
+#pragma  mark -IBActions
+
 - (IBAction)signInButtonTapped:(id)sender {
     [view setHidden:NO];
     [view bringSubviewToFront:activityIndicatorView];
@@ -83,16 +81,8 @@
     [view addSubview:activityIndicatorView];
     [self.view addSubview:view];
     [view setHidden:YES];
-
-
+    
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 
 @end

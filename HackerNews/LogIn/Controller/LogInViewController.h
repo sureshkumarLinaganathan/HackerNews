@@ -1,5 +1,5 @@
 //
-//  UITextField+TextFieldEffects.h
+//  LogInViewController.h
 //  HackerNews
 //
 //  Created by Sureshkumar Linganathan on 6/18/18.
@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITextField (TextFieldEffects)
+@interface LogInViewController : UIViewController
 
--(void)createRoundCornerTextField;
-
--(void)addPadding;
 
 @end
+

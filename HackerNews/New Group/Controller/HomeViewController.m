@@ -23,7 +23,7 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
 {
     DGActivityIndicatorView *activityIndicatorView;
     UIView *view;
-    int pageIndex;
+    int limit;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *storiesTableView;
@@ -32,6 +32,7 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
 @property (strong, nonatomic) NSMutableArray *storiesArray;
 @property (strong, nonatomic) Story *selectedStory;
 @property (strong, nonatomic) NSMutableArray *keyArray;
+@property (assign, nonatomic) int pageIndex;
 
 @end
 
@@ -48,12 +49,14 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
 -(void)setupView{
     self.storiesArray = [NSMutableArray array];
     self.keyArray = [[NSMutableArray alloc]init];
-    pageIndex = 0;
+    _pageIndex = 0;
     [self.storiesTableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
     [self.storiesTableView setTableFooterView:[[UIView alloc] init]];
     [self addloadingIndicator];
     [self getData];
 }
+
+#pragma mark- Loading indicator methods
 
 -(void)addloadingIndicator{
     view = [[UIView alloc] initWithFrame:self.view.frame];
@@ -67,36 +70,58 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
     [view setHidden:YES];
 }
 
-- (void)getData {
-    
+-(void)showActivityIndicator{
     [view setHidden:NO];
     [view bringSubviewToFront:activityIndicatorView];
     [self.view setUserInteractionEnabled:NO];
     [activityIndicatorView startAnimating];
+}
+
+-(void)hideActivityIndicator{
+    [activityIndicatorView stopAnimating];
+    [view setHidden:YES];
+    [self.view setUserInteractionEnabled:YES];
+}
+
+- (void)getData {
+    [self showActivityIndicator];
     [[Webservice alloc]getTopStories:^(BOOL success, NSMutableArray *objects, NSString *errorMsg) {
         if(success){
             _keyArray = objects;
-            [self getStories:0];
+            [self getStories:_pageIndex];
         }
     }];
     
 }
 
 -(void)getStories:(int)pageIndex{
-    NSString *key = [self.keyArray objectAtIndex:pageIndex];
-    [[Webservice alloc]getStoriesForKey:key withCompletionBlock:^(BOOL success, Story *story, NSString *errorMsg) {
-        if(success){
-            [_storiesArray addObject:story];
-            if(pageIndex == 10){
-                [activityIndicatorView stopAnimating];
-                [view setHidden:YES];
-                [self.view setUserInteractionEnabled:YES];
-                [self.storiesTableView reloadData];
+    limit++;
+    if(pageIndex<[self.keyArray count]){
+        NSString *key = [self.keyArray objectAtIndex:pageIndex];
+        [[Webservice alloc]getStoriesForKey:key withCompletionBlock:^(BOOL success, Story *story, NSString *errorMsg) {
+            if(success){
+                [_storiesArray addObject:story];
+                if([_storiesArray count] ==1){
+                    Story *story = [_storiesArray objectAtIndex:0];
+                    self.refreshedTimeLabel.text = story.dateOfSubmission;
+                }
+                if(limit == 10){
+                    [self hideActivityIndicator];
+                    [self.storiesTableView reloadData];
+                    limit = 0;
+                }else{
+                    _pageIndex++;
+                    [self getStories:_pageIndex];
+                }
             }else{
-            [self getStories:pageIndex+1];
+                _pageIndex++;
+                [self getStories:_pageIndex];
             }
-        }
-    }];
+        }];
+    }else{
+        [self hideActivityIndicator];
+        [self.storiesTableView reloadData];
+    }
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -109,11 +134,12 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
     return self.storiesArray.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if((indexPath.row == _pageIndex)&&(_pageIndex<[self.keyArray count])){
+        [self showActivityIndicator];
+        _pageIndex = _pageIndex+1;
+        [self getStories:_pageIndex];
+    }
     HomeTableViewCell *cell = (HomeTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"HomeTableViewCell" forIndexPath:indexPath];
     [cell setStory:[self.storiesArray objectAtIndex:indexPath.row]];
     return cell;
@@ -149,10 +175,6 @@ NSString *const homeViewControllerSegue =@"homeViewcontrollerSegue";
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
 
 
 @end

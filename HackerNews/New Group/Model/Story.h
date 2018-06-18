@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *numberOfVotes;
 @property (strong, nonatomic) NSString *totalComments;
 @property (strong, nonatomic) NSString *websiteURL;
+@property (strong, nonatomic) NSArray *commentsKey;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
